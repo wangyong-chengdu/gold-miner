@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄金矿工闯关游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 游戏标题 -->
+        <div class="game-header">
+            <h1>🏆 黄金矿工闯关游戏 ⛏️</h1>
+        </div>
+
+        <!-- 游戏信息面板 -->
+        <div class="game-info">
+            <div class="info-item">
+                <span class="label">关卡:</span>
+                <span id="level">1</span>
+            </div>
+            <div class="info-item">
+                <span class="label">分数:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="info-item">
+                <span class="label">目标:</span>
+                <span id="target">1000</span>
+            </div>
+            <div class="info-item">
+                <span class="label">时间:</span>
+                <span id="time">60</span>s
+            </div>
+            <div class="info-item">
+                <span class="label">炸药:</span>
+                <span id="bombs">3</span>
+            </div>
+        </div>
+
+        <!-- 游戏画布 -->
+        <div class="game-canvas-container">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <!-- 游戏控制提示 -->
+            <div class="game-controls">
+                <p>🎮 操作说明：点击鼠标、空格键或↓键放下钩子，按B键或↑键使用炸药</p>
+            </div>
+        </div>
+
+        <!-- 游戏状态弹窗 -->
+        <div id="gameModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modalTitle">游戏开始</h2>
+                <p id="modalMessage">准备好开始挖金子了吗？</p>
+                <div class="modal-buttons">
+                    <button id="startBtn" class="btn btn-primary">开始游戏</button>
+                    <button id="nextBtn" class="btn btn-primary hidden">下一关</button>
+                    <button id="restartBtn" class="btn btn-secondary hidden">重新开始</button>
+                    <button id="menuBtn" class="btn btn-secondary hidden">返回菜单</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商店弹窗 -->
+        <div id="shopModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🛒 矿工商店</h2>
+                <div class="shop-items">
+                    <div class="shop-item">
+                        <div class="item-info">
+                            <h3>💣 炸药</h3>
+                            <p>炸毁不想要的物品</p>
+                            <span class="price">100金币</span>
+                        </div>
+                        <button class="buy-btn" data-item="bomb">购买</button>
+                    </div>
+                    <div class="shop-item">
+                        <div class="item-info">
+                            <h3>⚡ 力量药水</h3>
+                            <p>提升钩子拉取速度</p>
+                            <span class="price">200金币</span>
+                        </div>
+                        <button class="buy-btn" data-item="strength">购买</button>
+                    </div>
+                    <div class="shop-item">
+                        <div class="item-info">
+                            <h3>🍀 幸运符</h3>
+                            <p>增加找到大金块的概率</p>
+                            <span class="price">300金币</span>
+                        </div>
+                        <button class="buy-btn" data-item="luck">购买</button>
+                    </div>
+                </div>
+                <button id="closeShop" class="btn btn-secondary">关闭商店</button>
+            </div>
+        </div>
+
+        <!-- 游戏说明 -->
+        <div class="game-instructions">
+            <h3>🎯 游戏规则</h3>
+            <ul>
+                <li>🥇 大金块：500分，但很重，拉取速度慢</li>
+                <li>🥈 小金块：100分，重量适中</li>
+                <li>💎 钻石：300分，体积小，容易抓取</li>
+                <li>💰 金袋：50分，轻便快速</li>
+                <li>🪨 石头：10分，重量大，价值低</li>
+                <li>💀 骷髅：-50分，避免抓取</li>
+                <li>💣 使用炸药可以炸毁不想要的物品</li>
+                <li>⏰ 在时间结束前达到目标分数即可过关</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
